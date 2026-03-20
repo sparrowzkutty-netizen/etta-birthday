@@ -777,23 +777,27 @@ Always stay the same amazing person🥹… forever special to me 🎀!!`;
             finalDiv.innerHTML = `Once again Happy Birthday Etta 💙<br><br>You mean a lot to me.`;
         }
 
-        // Gift opening - with correct static path
+       <script>
         function openGift(element, message, imageFile) {
             const flash = document.createElement('div');
             flash.className = 'flash';
             document.body.appendChild(flash);
             setTimeout(() => flash.remove(), 300);
+
             element.innerHTML = `
                 <i class="fas fa-camera"></i>
-                <img src="photos/${imageFile}" alt="Memory"
+                <img src="${imageFile}" 
+                    alt="Memory"
+                    style="width:140px; border-radius:10px; margin-top:10px;"
                     onerror="this.src='https://via.placeholder.com/140?text=Photo'">
                 <p>${message}</p>
             `;
 
-            element.onclick = () => zoomImage(`photos/${imageFile}`, message);
+            element.onclick = () => zoomImage(`${imageFile}`, message);
 
             createFloatingHearts(6);
-       }    
+        }
+        </script>
         function zoomImage(imageSrc, caption) {
             const modal = document.getElementById('zoomModal');
             const content = document.getElementById('zoomContent');
